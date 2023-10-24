@@ -5,6 +5,7 @@ import streamlit as st  # pip install streamlit
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
+from carbon_footprint_tracker import Vehicle, EnergyConsumption, WasteProduction
 import streamlit_calendar as st_calendar
 
 # GitHub: https://github.com/andfanilo/streamlit-lottie
@@ -208,3 +209,15 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
+    
+
+
+# Create a User object.
+user = User([Vehicle(make="Toyota", model="Prius"), Vehicle(make="Honda", model="Civic")], [EnergyConsumption(electricity_consumption=1000, natural_gas_consumption=500)], [WasteProduction(recyclable_waste=10, compostable_waste=5, landfill_waste=2)])
+
+# Calculate the user's carbon footprint.
+carbon_footprint = calculate_carbon_footprint(user)
+
+# Display the user's carbon footprint.
+st.title("Carbon Footprint Tracker")
+st.write("Your carbon footprint is:", carbon_footprint)
