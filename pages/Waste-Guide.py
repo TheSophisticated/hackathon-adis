@@ -21,3 +21,14 @@ with st.container():
     st.write("""Recycling is the process of converting waste materials into new materials and objects. 
              It is an alternative to conventional waste disposal that can save material and help lower greenhouse gas emissions. 
              Recycling can benefit your community and the environment.""")
+    st.write("Materials that can be recycled: ")
+    st.write("""
+
+            Paper and cardboard: This includes newspapers, magazines, office paper, and cardboard boxes
+
+Plastic: This includes most types of plastic bottles, jugs, and containers, as well as plastic bags and packaging.
+
+Metal: This includes aluminum and steel cans, lids, and foil
+
+Glass: This includes glass bottles and jars            
+""")
