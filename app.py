@@ -44,7 +44,7 @@ contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"
      <button type="submit">Send</button>
 </form>"""
 
-st.set_page_config(page_title = 'Home', page_icon = ':house', layout = 'wide' )
+st.set_page_config(page_title = 'Live Green', page_icon = ':house', layout = 'wide' )
 
 selected = option_menu(
     menu_title = None,
