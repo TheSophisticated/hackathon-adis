@@ -55,6 +55,15 @@ selected = option_menu(
     styles = None
 )
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 if selected == 'Home':
     #---Header Section--
     with st.container():
