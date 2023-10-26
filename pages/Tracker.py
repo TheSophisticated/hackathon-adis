@@ -1,24 +1,39 @@
 import streamlit as st
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
         "Transportation": 0.14,  # kgCO2/km
         "Electricity": 0.82,  # kgCO2/kWh
         "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
-        "Waste": 0.1  # kgCO2/kg
+        "Waste": 0.1,  # kgCO2/kg
+    },
+    "UAE": {
+        "Transportation": 0.3,  # kgCO2/km
+        "Electricity": 0.95,  # kgCO2/kWh
+        "Diet": 1.5,  # kgCO2/meal, 2.5kgco2/kg
+        "Waste": 0.15,  # kgCO2/kg
     }
 }
 
-# Set wide layout and page name
-st.set_page_config(layout="wide", page_title="Personal Carbon Calculator")
+
 
 # Streamlit app code
-st.title("Personal Carbon Calculator App ⚠️")
+st.title("Calculate Your Carbon Emissions 🌫️ ")
 
 # User inputs
 st.subheader("🌍 Your Country")
-country = st.selectbox("Select", ["India"])
+country = st.selectbox("Select", ["UAE", "India"])
+
 
 col1, col2 = st.columns(2)
 
@@ -65,6 +80,13 @@ total_emissions = round(
 
 if st.button("Calculate CO2 Emissions"):
 
+
+    # Calculate carbon emissions
+    transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
+    electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
+    diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
+    waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
+
     # Display results
     st.header("Results")
 
@@ -72,12 +94,12 @@ if st.button("Calculate CO2 Emissions"):
 
     with col3:
         st.subheader("Carbon Emissions by Category")
-        st.info(f"🚗 Transportation: {transportation_emissions} tonnes CO2 per year")
-        st.info(f"💡 Electricity: {electricity_emissions} tonnes CO2 per year")
-        st.info(f"🍽️ Diet: {diet_emissions} tonnes CO2 per year")
-        st.info(f"🗑️ Waste: {waste_emissions} tonnes CO2 per year")
+        st.info(f"🚗 Transportation: {EMISSION_FACTORS[country]['Transportation']} tonnes CO2 per year")
+        st.info(f"💡 Electricity: {EMISSION_FACTORS[country]['Electricity']} tonnes CO2 per year")
+        st.info(f"🍽️ Diet: {EMISSION_FACTORS[country]['Diet']} tonnes CO2 per year")
+        st.info(f"🗑️ Waste: {EMISSION_FACTORS[country]['Waste']} tonnes CO2 per year")
 
     with col4:
         st.subheader("Total Carbon Footprint")
         st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-        st.warning("In 2021, CO2 emissions per capita for India was 1.9 tons of CO2 per capita. Between 1972 and 2021, CO2 emissions per capita of India grew substantially from 0.39 to 1.9 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021")
+        st.warning("In 2023, CO2 emissions per capita for UAE was 20.5 tons of CO2 per capita. Between 1972 and 2023, CO2 emissions per capita of UAE grew substantially from 4.2 to 20.5 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 10.33% in 2023")
