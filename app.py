@@ -36,15 +36,15 @@ lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
 
 
-contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-     <input type="text" name="name" placeholder="Name" required>
-     <input type="email" name="email" placeholder="Email" required>
-     <textarea type="query" name = "query" placeholder="Your Message" required></textarea>
-     <button type="submit">Send</button>
+contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea type="query" name = "query" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
 </form>"""
 
-st.set_page_config(page_title = 'Live Green', page_icon = ':house', layout = 'wide' )
+st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide' )
 
 selected = option_menu(
     menu_title = None,
