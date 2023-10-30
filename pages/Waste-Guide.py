@@ -24,6 +24,10 @@ selected = option_menu(
 )
 
 
+
+if selected == 'Home' or 'Explore':
+    switch_page("app")
+
 with st.container():
     st.title("Waste Disposal Guide")
     st. write("Recycling: ")

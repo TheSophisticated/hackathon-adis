@@ -46,6 +46,8 @@ contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"
 
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide' )
 
+st.markdown("# Live Green")
+
 selected = option_menu(
     menu_title = None,
     options = ['Home', 'Explore', 'Contact Us'],
@@ -66,6 +68,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 if selected == 'Home':
     #---Header Section--
+    
     with st.container():
         st.title("Home")
     
@@ -120,6 +123,7 @@ At Live Green, we understand your dedication to the environment, and our mission
 """)
 
 elif selected == 'Explore':
+   
     with st.container():
         st.title("Explore")
 
