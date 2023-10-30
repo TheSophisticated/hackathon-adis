@@ -46,15 +46,8 @@ contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"
 
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide' )
 
-with st.container():
-    left_column, right_column = st.columns(2, gap='medium')
-    with left_column:
-        st.image("my_favicon.png", width=200, )
-
-    with right_column:
-        st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
-    st.write("\n")
-
+st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
+st.write("\n")
 
 selected = option_menu(
     menu_title = None,
