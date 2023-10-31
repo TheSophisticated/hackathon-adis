@@ -44,7 +44,12 @@ contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"
   <button type="submit">Send</button>
 </form>"""
 
-st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide' )
+bg_grad = """
+    background: rgb(98,255,124);
+    background: linear-gradient(176deg, rgba(98,255,124,1) 5%, rgba(217,255,225,1) 51%, rgba(98,255,124,1) 100%);
+"""
+
+st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide', initial_sidebar_state='collapsed' )
 
 st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
 st.write("\n")
@@ -66,6 +71,16 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 if selected == 'Home':
     #---Header Section--
