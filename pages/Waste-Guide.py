@@ -23,6 +23,8 @@ selected = option_menu(
     styles = None
 )
 
+if st.button("Back To Home"):
+    switch_page("app")
 
 
 if selected == 'Home' or 'Explore':
