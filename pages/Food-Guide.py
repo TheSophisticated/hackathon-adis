@@ -7,6 +7,11 @@ from streamlit_option_menu import option_menu
 from streamlit_chat import message
 from streamlit_extras.switch_page_button import switch_page
 
+st.set_page_config(page_title="Food Guide", page_icon="my_favicon.png", layout = 'wide' )
+
+def calc_BMI(height, weight):
+    bmi = weight/(height**2)
+    return bmi
 
 hide_st_style = """
             <style>
@@ -17,6 +22,9 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+st.markdown("<div style='text-align: center;'><h1>Food Guide 🍉</h1></div>", unsafe_allow_html=True)
+st.write("\n")
+
 selected = option_menu(
     menu_title = None,
     options = ['Home', 'Explore', 'Contact Us'],
@@ -26,9 +34,13 @@ selected = option_menu(
     styles = None
 )
 
-with st.container():
-    st.title("Food Guide ")
 
+st.subheader("BMI Calculator")
+weight = st.text_input("Enter Your Weight(In Kg's): ")
+height = st.text_input("Enter your Height(In meters): ")
+if st.button("Calculate my BMI"):
+    user_bmi = calc_BMI(float(height), float(weight))
+    st.text(f"Your BMI is: {round(user_bmi,1)}")
     
 openai.api_key = st.secrets["api_secret"]
     
@@ -54,7 +66,7 @@ if 'past' not in st.session_state:
 def get_text():
     input_text = st.text_input("You: ","Hello, how are you?", key="input")
     return input_text 
-
+st.write("----")
 user_input = get_text()
 
 if user_input:
