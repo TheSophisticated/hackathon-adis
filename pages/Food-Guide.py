@@ -40,8 +40,15 @@ weight = st.text_input("Enter Your Weight(In Kg's): ")
 height = st.text_input("Enter your Height(In meters): ")
 if st.button("Calculate my BMI"):
     user_bmi = calc_BMI(float(height), float(weight))
-    st.text(f"Your BMI is: {round(user_bmi,1)}")
-    
+    if user_bmi < 18.5:
+        st.warning(f"Your BMI is: {round(user_bmi, 1)} and you are underweight")
+    elif user_bmi >= 18.5 and user_bmi <=24.9:
+        st.success(f"Your BMI is: {round(user_bmi, 1)} and it is in a Healthy Range")
+    elif user_bmi >= 25.0 and user_bmi <=29.9:
+        st.warning(f"Your BMI is {round(user_bmi, 1)} and it is in the Overweight Range")
+    elif user_bmi >= 30.0:
+        st.warning(f"Your BMI is {round(user_bmi,1)} and it is in the Obese Range")
+
 openai.api_key = st.secrets["api_secret"]
     
 def generate_response(prompt):
