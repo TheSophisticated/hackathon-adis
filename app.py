@@ -6,10 +6,10 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
+#set_page_config
+st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide', initial_sidebar_state='collapsed' )
 
-# GitHub: https://github.com/andfanilo/streamlit-lottie
-# Lottie Files: https://lottiefiles.com/
-
+#Defining Functions
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -18,7 +18,6 @@ def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
-
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -26,6 +25,7 @@ def load_lottieurl(url: str):
     return r.json()
     
 
+#All Animation files declared here
 # replace link to local lottie file
 lottie_hello = load_lottieurl("https://lottie.host/56d1faa9-c78e-459f-888e-5f3eaa2abf2d/hYh9CF4KDt.json")
 lottie_tracker = load_lottieurl("https://lottie.host/3170ab1a-092f-4713-b398-8d880b8e0f89/9XoxtwePbF.json")
@@ -35,7 +35,7 @@ lottie_cal = load_lottieurl("https://lottie.host/5ca4d357-bc7e-4b88-ada3-25098a4
 lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d53a54d/4x1JxpVCSo.json")
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
 
-
+#CSS
 contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"method="POST">
   <input type="hidden" name="_captcha" value="false">
   <input type="text" name="name" placeholder="Name" required>
@@ -49,28 +49,14 @@ bg_grad = """
     background: linear-gradient(176deg, rgba(98,255,124,1) 5%, rgba(217,255,225,1) 51%, rgba(98,255,124,1) 100%);
 """
 
-st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide', initial_sidebar_state='collapsed' )
-
-st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
-st.write("\n")
-
-selected = option_menu(
-    menu_title = None,
-    options = ['Home', 'Explore', 'Contact Us'],
-    icons = ['house', 'book', 'envelope'],
-    default_index = 0,
-    orientation = 'horizontal',
-    styles = None
-)
-
-hide_st_style = """
+'''hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             </style>
             """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(hide_st_style, unsafe_allow_html=True)'''
 st.markdown(
     """
 <style>
@@ -82,6 +68,21 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+#Setting Up page configs
+st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
+st.write("\n")
+
+#Navbar
+selected = option_menu(
+    menu_title = None,
+    options = ['Home', 'Explore', 'Contact Us'],
+    icons = ['house', 'book', 'envelope'],
+    default_index = 0,
+    orientation = 'horizontal',
+    styles = None
+)
+
+#Main Page
 if selected == 'Home':
     #---Header Section--
     
@@ -138,6 +139,7 @@ if selected == 'Home':
 At Live Green, we understand your dedication to the environment, and our mission revolves around reducing the hurdles that individuals, like yourself, often confront. Our website is dedicated to delivering an optimal array of resources and services, designed to facilitate your journey towards sustainability.
 """)
 
+#Explore Page
 elif selected == 'Explore':
    
     with st.container():
@@ -232,6 +234,7 @@ elif selected == 'Explore':
         with st.container():
             st.write("----")
 
+#Contact Page
 elif selected == "Contact Us":
     st.title("✉️Get in Touch!")
     st.markdown(contact_form, unsafe_allow_html=True)
