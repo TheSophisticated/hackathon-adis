@@ -78,7 +78,7 @@ st.markdown(
     """
     <style>
         body{
-            transform: scale(0.8):
+            transform: scale(0.5):
         }
     </style>
 """,
