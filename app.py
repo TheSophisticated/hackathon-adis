@@ -71,7 +71,16 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
+st.markdown(
+    """
+    <style>
+        body{
+            transform: scale(0.5):
+        }
+    </style>
+""",
+unsafe_allow_html=True
+)
 
 # Setting Up page configs
 st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
