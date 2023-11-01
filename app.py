@@ -1,4 +1,4 @@
-#Import Dependencies
+# Import Dependencies
 import json
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
@@ -6,36 +6,40 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
-#set_page_config
-st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout = 'wide', initial_sidebar_state='collapsed' )
+# set_page_config
+st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
+                   initial_sidebar_state='collapsed')
 
-#Defining Functions
+
+# Defining Functions
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
+
 
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
-    
 
-#All Animation files declared here
+
+# All Animation files declared here
 # replace link to local lottie file
 lottie_hello = load_lottieurl("https://lottie.host/56d1faa9-c78e-459f-888e-5f3eaa2abf2d/hYh9CF4KDt.json")
 lottie_tracker = load_lottieurl("https://lottie.host/3170ab1a-092f-4713-b398-8d880b8e0f89/9XoxtwePbF.json")
-lottie_why= load_lottieurl("https://lottie.host/981a0f88-6a06-4ea9-a4e9-92c2d962309e/eOLgYDDSRZ.json")
+lottie_why = load_lottieurl("https://lottie.host/981a0f88-6a06-4ea9-a4e9-92c2d962309e/eOLgYDDSRZ.json")
 lottie_waste = load_lottieurl("https://lottie.host/8b646674-95fa-4fad-a136-1dafb118ac30/SExy5Xq00Y.json")
 lottie_cal = load_lottieurl("https://lottie.host/5ca4d357-bc7e-4b88-ada3-25098a4689eb/zIXsgClbao.json")
 lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d53a54d/4x1JxpVCSo.json")
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
 
-#CSS
+# CSS
 contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"method="POST">
   <input type="hidden" name="_captcha" value="false">
   <input type="text" name="name" placeholder="Name" required>
@@ -74,24 +78,23 @@ st.write("\n")
 
 # Navbar
 selected = option_menu(
-    menu_title = None,
-    options = ['Home', 'Explore', 'Contact Us'],
-    icons = ['house', 'book', 'envelope'],
-    default_index = 0,
-    orientation = 'horizontal',
-    styles = None
+    menu_title=None,
+    options=['Home', 'Explore', 'Contact Us'],
+    icons=['house', 'book', 'envelope'],
+    default_index=0,
+    orientation='horizontal',
+    styles=None
 )
 
-#Main Page
+# Main Page
 if selected == 'Home':
-    #---Header Section--
-    
-    with st.container():
-        st.title("Home")
-    
+    # ---Header Section--
 
     with st.container():
-   
+        st.title("Home")
+
+    with st.container():
+
         left_column, right_column = st.columns(2)
         with left_column:
             st.subheader('')
@@ -106,18 +109,18 @@ if selected == 'Home':
             Tips on how to reduce energy consumption
             A community forum where users can connect with other sustainability-minded people
             Live Green is the perfect tool for anyone who wants to live more sustainably. It's easy to use, informative, and comprehensive. With Live Green, you can make a difference for the planet, one small step at a time.""")
-    
+
         with right_column:
             st_lottie(
                 lottie_hello,
                 speed=1,
                 reverse=False,
                 loop=True,
-                quality="low", # medium ; high
+                quality="low",  # medium ; high
                 height=500,
                 width=None,
             )
-        
+
         with left_column:
             st.write("")
             st.write("")
@@ -127,10 +130,10 @@ if selected == 'Home':
             st.write("")
             st_lottie(
                 lottie_why,
-                speed = 1,
+                speed=1,
                 reverse=False,
                 loop=True,
-                height = 400,
+                height=400,
             )
         with right_column:
             st.subheader("")
@@ -139,9 +142,9 @@ if selected == 'Home':
 At Live Green, we understand your dedication to the environment, and our mission revolves around reducing the hurdles that individuals, like yourself, often confront. Our website is dedicated to delivering an optimal array of resources and services, designed to facilitate your journey towards sustainability.
 """)
 
-#Explore Page
+# Explore Page
 elif selected == 'Explore':
-   
+
     with st.container():
         st.title("Explore")
 
@@ -159,7 +162,7 @@ elif selected == 'Explore':
                 speed=1,
                 reverse=False,
                 loop=True,
-                quality="low", # medium ; high
+                quality="low",  # medium ; high
                 height=350,
                 width=None,
             )
@@ -169,10 +172,10 @@ elif selected == 'Explore':
             st.text("")
             st_lottie(
                 lottie_waste,
-                speed = 1,
-                loop = True,
-                reverse = False,
-                height = 350,
+                speed=1,
+                loop=True,
+                reverse=False,
+                height=350,
             )
         with right_column:
             st.subheader("Waste Disposal Guide")
@@ -188,16 +191,16 @@ elif selected == 'Explore':
                      Start making a positive impact and embrace a greener, cleaner world with our straightforward Sustainability Event Calendar.""")
             if st.button("Visit the Calendar"):
                 switch_page("calendar")
-        
+
         with right_column:
             st_lottie(
                 lottie_cal,
-                speed = 1,
-                loop = True,
-                reverse = False,
-                height = 350,
+                speed=1,
+                loop=True,
+                reverse=False,
+                height=350,
             )
-        
+
         with right_column:
             st.subheader("Sustainable Food Guide")
             st.write("""Introducing the Sustainability Food Guide, your ultimate companion on the path to greener, healthier dining. This user-friendly resource is your gateway to eco-conscious culinary choices. Discover tips and insights on sourcing local ingredients, reducing food waste, and embracing sustainable cooking practices. 
@@ -208,12 +211,12 @@ elif selected == 'Explore':
         with left_column:
             st_lottie(
                 lottie_food,
-                speed = 1,
-                loop = True,
-                reverse = False,
-                height = 350,
+                speed=1,
+                loop=True,
+                reverse=False,
+                height=350,
             )
-        
+
         with left_column:
             st.subheader("Sustainable Business Directory")
             st.write("""
@@ -225,16 +228,16 @@ elif selected == 'Explore':
         with right_column:
             st_lottie(
                 lottie_business,
-                speed = 1,
-                reverse = False,
-                loop = True,
-                height = 400,
+                speed=1,
+                reverse=False,
+                loop=True,
+                height=400,
             )
 
         with st.container():
             st.write("----")
 
-#Contact Page
+# Contact Page
 elif selected == "Contact Us":
     st.title("✉️Get in Touch!")
     st.markdown(contact_form, unsafe_allow_html=True)
