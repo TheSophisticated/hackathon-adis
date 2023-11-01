@@ -55,7 +55,7 @@ def generate_response(prompt):
     completions= openai.Completion.create(
         engine = "text-davinci-003",
         prompt = prompt,
-        max_tokens = 1024,
+        max_tokens = 4000,
         n = 1,
         stop = None,
         temperature = 0.3,
