@@ -53,14 +53,14 @@ bg_grad = """
     background: linear-gradient(176deg, rgba(98,255,124,1) 5%, rgba(217,255,225,1) 51%, rgba(98,255,124,1) 100%);
 """
 
-'''hide_st_style = """
+hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             </style>
             """
-st.markdown(hide_st_style, unsafe_allow_html=True)'''
+st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
