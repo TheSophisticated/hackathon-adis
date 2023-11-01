@@ -68,11 +68,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-#Setting Up page configs
+# Setting Up page configs
 st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
 st.write("\n")
 
-#Navbar
+# Navbar
 selected = option_menu(
     menu_title = None,
     options = ['Home', 'Explore', 'Contact Us'],
