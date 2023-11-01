@@ -1,11 +1,11 @@
+#Import Dependencies
 import json
-import carbontracker
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
-import streamlit_calendar as st_calendar
+
 
 # GitHub: https://github.com/andfanilo/streamlit-lottie
 # Lottie Files: https://lottiefiles.com/
@@ -26,7 +26,7 @@ def load_lottieurl(url: str):
     return r.json()
     
 
-  # replace link to local lottie file
+# replace link to local lottie file
 lottie_hello = load_lottieurl("https://lottie.host/56d1faa9-c78e-459f-888e-5f3eaa2abf2d/hYh9CF4KDt.json")
 lottie_tracker = load_lottieurl("https://lottie.host/3170ab1a-092f-4713-b398-8d880b8e0f89/9XoxtwePbF.json")
 lottie_why= load_lottieurl("https://lottie.host/981a0f88-6a06-4ea9-a4e9-92c2d962309e/eOLgYDDSRZ.json")
@@ -237,7 +237,3 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
-    
-
-
-
