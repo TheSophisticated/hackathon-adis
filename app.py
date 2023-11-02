@@ -40,7 +40,7 @@ lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
 
 # CSS
-contact_form = """<form action="https://formsubmit.co/iluvguccibanana@gmail.com"method="POST">
+contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"method="POST">
   <input type="hidden" name="_captcha" value="false">
   <input type="text" name="name" placeholder="Name" required>
   <input type="email" name="email" placeholder="Email" required>

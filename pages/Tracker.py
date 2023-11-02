@@ -22,11 +22,11 @@ selected = option_menu(
     orientation = 'horizontal',
     styles = None
 )
-
+ 
 if st.button("Back To Home"):
     switch_page("app")
-
-
+    
+    
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
