@@ -9,6 +9,7 @@ from appwrite.client import Client
 from appwrite.services.databases import Databases
 import time
 
+st.set_page_bg_img
 # set_page_config
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')
@@ -81,7 +82,7 @@ unsafe_allow_html=True
 )
 
 # Setting Up page configs
-st.markdown("<div style='text-align: center;'><h1>Live Green</h1></div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'><h1>Live Green 🌳</h1></div>", unsafe_allow_html=True)
 st.write("\n")
 
 # Navbar
