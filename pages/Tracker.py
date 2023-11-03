@@ -55,10 +55,10 @@ with col1:
 
 with col2:
     st.subheader("🍽️ Waste generated per week (in kg)")
-    waste = st.slider("Waste", 0.0, 100.0, key="waste_input")
+    waste = st.slider("Waste", 0.0, 5000.0, key="waste_input")
 
     st.subheader("🍽️ Number of meals per day")
-    meals = st.number_input("Meals", 0, key="meals_input")
+    meals = st.number_input("Meals", 10000, key="meals_input")
 
 # Normalize inputs
 if distance > 0:
