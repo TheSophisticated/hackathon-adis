@@ -9,7 +9,6 @@ from appwrite.client import Client
 from appwrite.services.databases import Databases
 import time
 
-st.set_page_bg_img
 # set_page_config
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')
