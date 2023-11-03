@@ -53,16 +53,7 @@ bg_grad = """
     background: linear-gradient(176deg, rgba(98,255,124,1) 5%, rgba(217,255,225,1) 51%, rgba(98,255,124,1) 100%);
 """
 
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.markdown(f"""<style>.footer {{ display: none; }}</style>""", unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -159,53 +150,43 @@ At Live Green, we understand your dedication to the environment, and our mission
 elif selected == 'Explore':
 
     with st.container():
-        st.title("Explore")
-
-    with st.container():
-        left_column, right_column = st.columns(2)
-        with left_column:
-            st.subheader("Carbon Footprint Tracker")
-            st.write("""A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand their personal impact on the environment. 
+        col_l, col_r = st.columns(2)
+        with col_l:
+            with st.container():
+                st_lottie(
+                    lottie_tracker,
+                    speed=1,
+                    reverse=False,
+                    loop=True,
+                    quality="low",  # medium ; high
+                    height=350,
+                    width=None,
+                )
+                st.markdown("<div style='text-align: center;'><h4>Carbon Tracker</h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
+                    st.write(""" their personal impact on the environment. 
                      It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
-            if st.button("Track Carbon Footprint"):
-                switch_page("tracker")
-        with right_column:
-            st_lottie(
-                lottie_tracker,
-                speed=1,
-                reverse=False,
-                loop=True,
-                quality="low",  # medium ; high
-                height=350,
-                width=None,
-            )
-        with left_column:
-            st.text("")
-            st.text("")
-            st.text("")
-            st_lottie(
-                lottie_waste,
-                speed=1,
-                loop=True,
-                reverse=False,
-                height=350,
-            )
-        with right_column:
-            st.subheader("Waste Disposal Guide")
-            st.write("""Is waste disposal leaving you perplexed? Look no further than our concise Waste Disposal Guide. This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
+                    if st.button("Go to the Carbon Tracker"):
+                        switch_page("tracker")
+                        selected = None
+        
+        with col_r:
+            with st.container():
+                st_lottie(
+                    lottie_waste,
+                    speed=1,
+                    loop=True,
+                    reverse=False,
+                    height=350,
+                )
+                st.markdown("<div style='text-align: center;'><h4>Waste Disposal Guide</h4></div>", unsafe_allow_html=True)
+                with st.expander("Is waste disposal leaving you perplexed? Look no further than our concise Waste Disposal Guide...."):
+                    st.write("""This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
             Say goodbye to waste-related woes and welcome a cleaner, greener future with this straightforward guide.""")
-            if st.button("Check Out the Guide!"):
-                switch_page("waste-guide")
-
-        with left_column:
-            st.subheader("Sustainability Event Calendar")
-            st.write("""Introducing our Sustainability Event Calendar, your go-to resource for staying up-to-date on crucial sustainability-related events and activities. Just like our concise Waste Disposal Guide simplifies responsible waste management, this user-friendly calendar makes it effortless to engage with eco-conscious initiatives. Discover important dates for environmental conferences, Earth Day celebrations, recycling drives, and more. 
-                     Say hello to a more sustainable future as you effortlessly track and join key events, leaving behind any sustainability-related uncertainties. 
-                     Start making a positive impact and embrace a greener, cleaner world with our straightforward Sustainability Event Calendar.""")
-            if st.button("Visit the Calendar"):
-                switch_page("calendar")
-
-        with right_column:
+                    if st.button("Check out the Waste Disposal Guide"):
+                        switch_page("waste-guide")
+                        selected = None
+        with col_l:
             st_lottie(
                 lottie_cal,
                 speed=1,
@@ -213,44 +194,30 @@ elif selected == 'Explore':
                 reverse=False,
                 height=350,
             )
-
-        with right_column:
-            st.subheader("Sustainable Food Guide")
-            st.write("""Introducing the Sustainability Food Guide, your ultimate companion on the path to greener, healthier dining. This user-friendly resource is your gateway to eco-conscious culinary choices. Discover tips and insights on sourcing local ingredients, reducing food waste, and embracing sustainable cooking practices. 
-                     Say farewell to unsustainable eating habits and savor a future filled with delicious, planet-friendly dishes. Welcome a new era of mindful, eco-friendly dining with our straightforward Sustainability Food Guide, where every meal contributes to a cleaner, greener world.""")
-            if st.button("Explore the Food Guide"):
-                switch_page("food-guide")
-
-        with left_column:
-            st_lottie(
-                lottie_food,
-                speed=1,
-                loop=True,
-                reverse=False,
-                height=350,
-            )
-
-        with left_column:
-            st.subheader("Sustainable Business Directory")
-            st.write("""
-                    Introducing the Sustainable Business Directory, your essential guide to navigating the world of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
-
-            if st.button("Business Directory"):
-                switch_page("business-dir")
-
-        with right_column:
+            st.markdown("<div style='text-align: center;'><h4>Sustainable Event Calendar</h4></div>", unsafe_allow_html=True)
+            with st.expander("Introducing our Sustainability Event Calendar, your go-to resource for staying up-to-date on crucial..."):
+                    st.write("""sustainability-related events and activities. Just like our concise Waste Disposal Guide simplifies responsible waste management, this user-friendly calendar makes it effortless to engage with eco-conscious initiatives. Discover important dates for environmental conferences, Earth Day celebrations, recycling drives, and more. 
+                     Say hello to a more sustainable future as you effortlessly track and join key events, leaving behind any sustainability-related uncertainties. 
+                     Start making a positive impact and embrace a greener, cleaner world with our straightforward Sustainability Event Calendar.""")
+                    if st.button("Check out the Sustainable Event Calendar"):
+                        switch_page("calendar")
+                        selected = None
+        
+        with col_r:
             st_lottie(
                 lottie_business,
                 speed=1,
                 reverse=False,
                 loop=True,
-                height=400,
+                height=350,
             )
-
-        with st.container():
-            st.write("----")
-
-# Contact Page
+            st.markdown("<div style='text-align: center;'><h4>Sustainable Business Directory</h4></div>", unsafe_allow_html=True)
+            with st.expander("Introducing the Sustainable Business Directory, your essential guide to navigating the world...."):
+                    st.write("""of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
+                    if st.button("Check out the Sustainable Business Directory"):
+                        switch_page("business-dir")
+                        selected = None
+# Contact Page      
 elif selected == "Contact Us":
     st.title("✉️Get in Touch!")
     st.markdown(contact_form, unsafe_allow_html=True)
