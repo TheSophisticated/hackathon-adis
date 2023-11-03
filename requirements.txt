@@ -3,3 +3,4 @@ streamlit
 streamlit-lottie
 streamlit_option_menu
 streamlit_extras
+appwrite
