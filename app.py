@@ -1,22 +1,25 @@
 # Import Dependencies
-import base64
 import json
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
+from appwrite.client import Client
+from appwrite.services.databases import Databases
+import time
 
 # set_page_config
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')
 
-#Loading Background Image
-@st.cache_data
-def get_img_as_base64(file):
-    with open(file, 'rb') as f:
-        data = f.read()
-        return base64.b64encode(data).decode()
+# Initialise Supabase
+appwrite_client = Client()
+appwrite_client.set_endpoint("https://cloud.appwrite.io/v1")
+appwrite_client.set_project("65452fa1053996a41f74")
+appwrite_client.set_key("5fb2446667fc22a8a5853788a220d8a08acbe05583bbc1dd90842650856b4126c6f395b32a72614fe1533ddcec5ceb284ebcf0a767f4ae863fafc83b664fd177de81b20707e3516ae46265a888523a90988c84c83bce476abe8e3cb3b6835f641713f614a6c174507ccfa971317468b20dc473d4c58e1c47548dabac09d0a52c")
+
+database = Databases(appwrite_client)
 
 # Defining Functions
 def local_css(file_name):
@@ -55,18 +58,6 @@ contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"meth
   <button type="submit">Send</button>
 </form>"""
 
-img = get_img_as_base64("bg-img.png")
-
-bg_img = """
-    <style>
-        [data-testid="stAppViewContainer"]{
-        background-image:url("data:image/png;base64,{img}");
-        background-size: cover;
-        }
-    </style>
-"""
-
-st.markdown(bg_img, unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -230,6 +221,41 @@ elif selected == 'Explore':
                     if st.button("Check out the Sustainable Business Directory"):
                         switch_page("business-dir")
                         selected = None
+    
+    st.write("-----")
+    with st.container():
+        st.title("Comments")
+
+        user_name = st.text_input("Your Name", "")
+        new_comment = st.text_area("Add your comment", "")
+
+        if st.button("Submit"):
+            if user_name and new_comment:
+                document_id = str(int(time.time() * 1000))
+                data = {
+                    'name': user_name,
+                    'comment': new_comment
+                }
+                response = database.create_document(collection_id="65453061a669a36a5df1", document_id=document_id, data=data, database_id='comments')
+                if response["$id"]:
+                    st.success("Comment added Successfully")
+                    new_comment = ""
+                    user_name = ""
+                else:
+                    st.warning("An error ocurred while adding the comment")
+            else:
+                st.warning("Please enter your name and comment before submitting")
+
+        st.subheader("Comments")
+        response = database.list_documents(collection_id="65453061a669a36a5df1", database_id='comments')
+
+        if response and 'documents' in response:
+            comments = response["documents"]
+            for comment in comments:
+                st.write(f"**{comment['name']}** : {comment['comment']}")
+        else:
+            st.info("No comments yet. Be the first one to comment!")
+
 # Contact Page      
 elif selected == "Contact Us":
     st.title("✉️Get in Touch!")
