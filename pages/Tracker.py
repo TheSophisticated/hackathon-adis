@@ -14,15 +14,6 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-selected = option_menu(
-    menu_title = None,
-    options = ['Home', 'Explore', 'Contact Us'],
-    icons = ['house', 'book', 'envelope'],
-    default_index = 0,
-    orientation = 'horizontal',
-    styles = None
-)
- 
 if st.button("Back To Home"):
     switch_page("app")
     
