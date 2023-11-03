@@ -1,4 +1,5 @@
 # Import Dependencies
+import base64
 import json
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
@@ -10,6 +11,12 @@ from streamlit_extras.switch_page_button import switch_page
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')
 
+#Loading Background Image
+@st.cache_data
+def get_img_as_base64(file):
+    with open(file, 'rb') as f:
+        data = f.read()
+        return base64.b64encode(data).decode()
 
 # Defining Functions
 def local_css(file_name):
@@ -48,12 +55,18 @@ contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"meth
   <button type="submit">Send</button>
 </form>"""
 
-bg_grad = """
-    background: rgb(98,255,124);
-    background: linear-gradient(176deg, rgba(98,255,124,1) 5%, rgba(217,255,225,1) 51%, rgba(98,255,124,1) 100%);
+img = get_img_as_base64("bg-img.png")
+
+bg_img = """
+    <style>
+        [data-testid="stAppViewContainer"]{
+        background-image:url("data:image/png;base64,{img}");
+        background-size: cover;
+        }
+    </style>
 """
 
-
+st.markdown(bg_img, unsafe_allow_html=True)
 
 st.markdown(
     """
