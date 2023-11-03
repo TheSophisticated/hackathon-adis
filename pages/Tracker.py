@@ -48,10 +48,10 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🚗 Daily commute distance (in km)")
-    distance = st.slider("Distance", 0.0, 100.0, key="distance_input")
+    distance = st.slider("Distance", 0.0, 500.0, key="distance_input")
 
     st.subheader("💡 Monthly electricity consumption (in kWh)")
-    electricity = st.slider("Electricity", 0.0, 1000.0, key="electricity_input")
+    electricity = st.slider("Electricity", 0.0, 5000.0, key="electricity_input")
 
 with col2:
     st.subheader("🍽️ Waste generated per week (in kg)")
