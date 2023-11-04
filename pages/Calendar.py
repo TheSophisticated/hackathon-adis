@@ -5,6 +5,7 @@ from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 import streamlit.components.v1 as components
+import base64
 
 hide_st_style = """
             <style>
@@ -15,6 +16,11 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+def encode_image_to_base64(image_path):
+    with open(image_path, 'rb') as image_file:
+        image_binary = image_file.read()
+        image_base64 = base64.b64encode(image_binary).decode('utf-8')
+    return image_base64
 
 selected = option_menu(
     menu_title = None,
@@ -87,3 +93,14 @@ selected_event = st.selectbox('Select an Event', [''] + list(events_data.keys())
 if selected_event:
     selected_description = events_data[selected_event]
     st.info(selected_description)
+
+st.title('Base64-Encoded Image in Streamlit')
+
+# Specify the path to your image file
+image_path = 'cal\may.png'
+
+# Encode the image as base64
+image_base64 = encode_image_to_base64(image_path)
+
+# Display the image in Streamlit
+st.image(f"data:image/jpeg;base64,{image_base64}", caption='Image', use_column_width=True)
