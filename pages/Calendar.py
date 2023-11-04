@@ -32,7 +32,7 @@ selected = option_menu(
 )
 
 image_urls = [
-    'hhttps://postimg.cc/PpjsYG9t',
+    'https://www.google.com/imgres?imgurl=https%3A%2F%2Fdynamic-media-cdn.tripadvisor.com%2Fmedia%2Fphoto-o%2F0f%2Fba%2F29%2F5c%2Fimg-worlds-of-adventure.jpg%3Fw%3D1200%26h%3D1200%26s%3D1&tbnid=BHbOsHsYSl36gM&vet=12ahUKEwii3dXUmquCAxUfsCcCHcQvAI8QMygCegQIARBr..i&imgrefurl=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g295424-d10687494-Reviews-IMG_Worlds_of_Adventure-Dubai_Emirate_of_Dubai.html&docid=4CepYyh_L6BPmM&w=1200&h=1200&q=img&ved=2ahUKEwii3dXUmquCAxUfsCcCHcQvAI8QMygCegQIARBr',
     'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png',
 ]
 
