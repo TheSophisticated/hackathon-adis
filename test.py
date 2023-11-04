@@ -5,6 +5,15 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # set_page_config
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')

@@ -59,6 +59,12 @@ with col2:
 
     st.subheader("🍽️ Number of meals per day")
     meals = st.number_input("Meals", 0, key="meals_input")
+    
+# Initialize variables for emissions
+transportation_emissions = 0.0
+electricity_emissions = 0.0
+diet_emissions = 0.0
+waste_emissions = 0.0
 
 # Normalize inputs
 if distance > 0:
