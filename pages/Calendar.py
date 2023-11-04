@@ -26,18 +26,18 @@ selected = option_menu(
 )
 
 image_urls = [
-    'cal\Jan.png',
-    'cal\Feb.png',
-    'cal\mar.png',
-    'cal\Apr.png',
-    'cal\may.png',
-    'cal\jun.png',
-    'cal\jul.png',
-    'cal\\aug.png',
-    'cal\sep.png',
-    'cal\oct.png',
-    'cal\\nov.png',
-    'cal\dec.png',
+    'https://imgur.com/1fgeQIa',
+    'https://imgur.com/d0NsPJo',
+    'https://imgur.com/B9r52fQ',
+    'https://imgur.com/R9LuOUK',
+    'https://imgur.com/Th3ddXY',
+    'https://imgur.com/RG7948U',
+    'https://imgur.com/6IV9Ll6',
+    'https://imgur.com/gQK9F10',
+    'https://imgur.com/DoD2cor',
+    'https://imgur.com/qPLDcsl',
+    'https://imgur.com/8g3OEJS',
+    'https://imgur.com/2ktWAoH',
 ]
 
 if st.button("Back To Home"):
