@@ -21,7 +21,6 @@ def encode_image_to_base64(file):
         data = f.read()
         return base64.b64encode(data).decode()
     
-img = encode_image_to_base64("https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png")
 
 selected = option_menu(
     menu_title = None,
@@ -34,7 +33,7 @@ selected = option_menu(
 
 image_urls = [
     'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Jan.png',
-    'https://images.unsplash.com/photo-1682685797366-715d29e33f9d?auto=format&fit=crop&q=60&w=700&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8',
+    'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png',
     'https://imgur.com/B9r52fQ',
     'https://imgur.com/R9LuOUK',
     'https://imgur.com/Th3ddXY',
@@ -95,10 +94,3 @@ if selected_event:
     selected_description = events_data[selected_event]
     st.info(selected_description)
 
-st.title('Base64-Encoded Image in Streamlit')
-
-# Dropdown to select a month
-selected_month = st.selectbox('Select a Month', list(images_by_month.keys()))
-
-
-st.image(f"data:image/png;base64,{img}", caption=selected_month, use_column_width=True)
