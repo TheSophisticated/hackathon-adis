@@ -32,18 +32,8 @@ selected = option_menu(
 )
 
 image_urls = [
-    'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Jan.png',
+    'https://raw.githubusercontent.com/TheSophisticated/hackathon-adis/main/cal/Feb.png',
     'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png',
-    'https://imgur.com/B9r52fQ',
-    'https://imgur.com/R9LuOUK',
-    'https://imgur.com/Th3ddXY',
-    'https://imgur.com/RG7948U',
-    'https://imgur.com/6IV9Ll6',
-    'https://imgur.com/gQK9F10',
-    'https://imgur.com/DoD2cor',
-    'https://imgur.com/qPLDcsl',
-    'https://imgur.com/8g3OEJS',
-    'https://imgur.com/2ktWAoH',
 ]
 
 if st.button("Back To Home"):
