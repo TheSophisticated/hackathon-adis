@@ -80,6 +80,8 @@ st.markdown(
 unsafe_allow_html=True
 )
 
+tracker = "pages\Tracker.py"
+
 # Setting Up page configs
 st.markdown("<div style='text-align: center;'><h1>Live Green 🌳</h1></div>", unsafe_allow_html=True)
 st.write("\n")
@@ -87,7 +89,7 @@ st.write("\n")
 # Navbar
 selected = option_menu(
     menu_title=None,
-    options=['Home', 'Explore', 'Contact Us'],
+    options=['Home', 'Personal','Community' ,'Contact Us'],
     icons=['house', 'book', 'envelope'],
     default_index=0,
     orientation='horizontal',
@@ -149,10 +151,9 @@ if selected == 'Home':
                      
 At Live Green, we understand your dedication to the environment, and our mission revolves around reducing the hurdles that individuals, like yourself, often confront. Our website is dedicated to delivering an optimal array of resources and services, designed to facilitate your journey towards sustainability.
 """)
-
-# Explore Page
-elif selected == 'Explore':
-
+            
+# Personal Features
+elif selected == "Personal":
     with st.container():
         col_l, col_r = st.columns(2)
         with col_l:
@@ -173,8 +174,23 @@ elif selected == 'Explore':
                     if st.button("Go to the Carbon Tracker"):
                         switch_page("tracker")
                         selected = None
-        
         with col_r:
+            st_lottie(
+                lottie_business,
+                speed=1,
+                reverse=False,
+                loop=True,
+                height=350,
+            )
+            st.markdown("<div style='text-align: center;'><h4>Electricity Management</h4></div>", unsafe_allow_html=True)
+            with st.expander("Introducing the Sustainable Business Directory, your essential guide to navigating the world...."):
+                    st.write("""of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
+                    if st.button("Check out the Sustainable Business Directory"):
+                        switch_page("business-dir")
+                        selected = None
+    with st.container():
+        col_1, col_2, col_3 = st.columns(3)
+        with col_2:
             with st.container():
                 st_lottie(
                     lottie_waste,
@@ -183,13 +199,18 @@ elif selected == 'Explore':
                     reverse=False,
                     height=350,
                 )
-                st.markdown("<div style='text-align: center;'><h4>Waste Disposal Guide</h4></div>", unsafe_allow_html=True)
+                st.markdown("<div style='text-align: center;'><h4>BMI Calculator</h4></div>", unsafe_allow_html=True)
                 with st.expander("Is waste disposal leaving you perplexed? Look no further than our concise Waste Disposal Guide...."):
                     st.write("""This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
             Say goodbye to waste-related woes and welcome a cleaner, greener future with this straightforward guide.""")
                     if st.button("Check out the Waste Disposal Guide"):
                         switch_page("waste-guide")
                         selected = None
+
+# Community Related Features
+elif selected == 'Community':
+    with st.container():
+        col_l, col_r = st.columns(2)
         with col_l:
             st_lottie(
                 lottie_cal,
@@ -221,6 +242,50 @@ elif selected == 'Explore':
                     if st.button("Check out the Sustainable Business Directory"):
                         switch_page("business-dir")
                         selected = None
+    
+    with st.container():
+        col_1, col_2, col_3 = st.columns(3)
+        with col_2:
+            with st.container():
+                st_lottie(
+                    lottie_waste,
+                    speed=1,
+                    loop=True,
+                    reverse=False,
+                    height=350,
+                )
+                st.markdown("<div style='text-align: center;'><h4>Waste Disposal Guide</h4></div>", unsafe_allow_html=True)
+                with st.expander("Is waste disposal leaving you perplexed? Look no further than our concise Waste Disposal Guide...."):
+                    st.write("""This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
+            Say goodbye to waste-related woes and welcome a cleaner, greener future with this straightforward guide.""")
+                    if st.button("Check out the Waste Disposal Guide"):
+                        switch_page("waste-guide")
+                        selected = None
+
+# Explore Page
+elif selected == 'Explore':
+
+    with st.container():
+        col_l, col_r = st.columns(2)
+        with col_l:
+            with st.container():
+                st_lottie(
+                    lottie_tracker,
+                    speed=1,
+                    reverse=False,
+                    loop=True,
+                    quality="low",  # medium ; high
+                    height=350,
+                    width=None,
+                )
+                st.markdown("<div style='text-align: center;'><h4>Carbon Tracker</h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
+                    st.write(""" their personal impact on the environment. 
+                     It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
+                    if st.button("Go to the Carbon Tracker"):
+                        switch_page("tracker")
+                        selected = None
+        
     
     st.write("-----")
     with st.container():
