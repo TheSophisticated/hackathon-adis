@@ -32,7 +32,7 @@ selected = option_menu(
 )
 
 image_urls = [
-    'https://raw.githubusercontent.com/TheSophisticated/hackathon-adis/main/cal/Feb.png',
+    'hhttps://postimg.cc/PpjsYG9t',
     'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png',
 ]
 
