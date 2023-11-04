@@ -21,7 +21,7 @@ def encode_image_to_base64(file):
         data = f.read()
         return base64.b64encode(data).decode()
     
-img = encode_image_to_base64("may.png")
+img = encode_image_to_base64("https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png")
 
 selected = option_menu(
     menu_title = None,
