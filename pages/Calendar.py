@@ -26,7 +26,7 @@ selected = option_menu(
 )
 
 image_urls = [
-    'https://imgur.com/1fgeQIa',
+    'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Jan.png',
     'https://imgur.com/d0NsPJo',
     'https://imgur.com/B9r52fQ',
     'https://imgur.com/R9LuOUK',
