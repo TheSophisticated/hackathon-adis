@@ -21,7 +21,7 @@ def encode_image_to_base64(file):
         data = f.read()
         return base64.b64encode(data).decode()
     
-img = encode_image_to_base64("cal\may.png")
+img = encode_image_to_base64("may.png")
 
 selected = option_menu(
     menu_title = None,
