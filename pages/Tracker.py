@@ -1,7 +1,7 @@
 import json
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
-from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
+from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
@@ -16,8 +16,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 if st.button("Back To Home"):
     switch_page("app")
-    
-    
+
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
@@ -34,15 +33,12 @@ EMISSION_FACTORS = {
     }
 }
 
-
-
 # Streamlit app code
 st.title("Calculate Your Carbon Emissions 🌫️ ")
 
 # User inputs
 st.subheader("🌍 Your Country")
 country = st.selectbox("Select", ["UAE", "India"])
-
 
 col1, col2 = st.columns(2)
 
@@ -59,7 +55,7 @@ with col2:
 
     st.subheader("🍽️ Number of meals per day")
     meals = st.number_input("Meals", 0, key="meals_input")
-    
+
 # Initialize variables for emissions
 transportation_emissions = 0.0
 electricity_emissions = 0.0
@@ -77,44 +73,39 @@ if waste > 0:
     waste = waste * 52  # Convert weekly waste to yearly
 
 # Calculate carbon emissions
-transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
-electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
-diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
-waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
-
-# Convert emissions to tonnes and round off to 2 decimal points
-transportation_emissions = round(transportation_emissions / 1000, 2)
-electricity_emissions = round(electricity_emissions / 1000, 2)
-diet_emissions = round(diet_emissions / 1000, 2)
-waste_emissions = round(waste_emissions / 1000, 2)
-
-# Calculate total emissions
-total_emissions = round(
-    transportation_emissions + electricity_emissions + diet_emissions + waste_emissions, 2
-)
-
-if st.button("Calculate CO2 Emissions"):
-
-
-    # Calculate carbon emissions
+if country in EMISSION_FACTORS:
     transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
     electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
     diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
     waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
 
-    # Display results
-    st.header("Results")
+    # Convert emissions to tonnes and round off to 2 decimal points
+    transportation_emissions = round(transportation_emissions / 1000, 2)
+    electricity_emissions = round(electricity_emissions / 1000, 2)
+    diet_emissions = round(diet_emissions / 1000, 2)
+    waste_emissions = round(waste_emissions / 1000, 2)
 
-    col3, col4 = st.columns(2)
+    # Calculate total emissions
+    total_emissions = round(
+        transportation_emissions + electricity_emissions + diet_emissions + waste_emissions, 2
+    )
 
-    with col3:
-        st.subheader("Carbon Emissions by Category")
-        st.info(f"🚗 Transportation: {EMISSION_FACTORS[country]['Transportation']} tonnes CO2 per year")
-        st.info(f"💡 Electricity: {EMISSION_FACTORS[country]['Electricity']} tonnes CO2 per year")
-        st.info(f"🍽️ Diet: {EMISSION_FACTORS[country]['Diet']} tonnes CO2 per year")
-        st.info(f"🗑️ Waste: {EMISSION_FACTORS[country]['Waste']} tonnes CO2 per year")
+    if st.button("Calculate CO2 Emissions"):
+        # Display results
+        st.header("Results")
 
-    with col4:
-        st.subheader("Total Carbon Footprint")
-        st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-        st.warning("In 2023, CO2 emissions per capita for UAE was 20.5 tons of CO2 per capita. Between 1972 and 2023, CO2 emissions per capita of UAE grew substantially from 4.2 to 20.5 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 10.33% in 2023")
+        col3, col4 = st.columns(2)
+
+        with col3:
+            st.subheader("Carbon Emissions by Category")
+            st.info(f"🚗 Transportation: {transportation_emissions} tonnes CO2 per year")
+            st.info(f"💡 Electricity: {electricity_emissions} tonnes CO2 per year")
+            st.info(f"🍽️ Diet: {diet_emissions} tonnes CO2 per year")
+            st.info(f"🗑️ Waste: {waste_emissions} tonnes CO2 per year")
+
+        with col4:
+            st.subheader("Total Carbon Footprint")
+            st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
+            st.warning("In 2023, CO2 emissions per capita for UAE was 20.5 tons of CO2 per capita. Between 1972 and 2023, CO2 emissions per capita of UAE grew substantially from 4.2 to 20.5 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 10.33% in 2023")
+else:
+    st.warning("Please select a valid country from the dropdown.")
