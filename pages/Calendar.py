@@ -27,7 +27,7 @@ selected = option_menu(
 
 image_urls = [
     'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Jan.png',
-    'https://imgur.com/d0NsPJo',
+    'https://images.unsplash.com/photo-1682685797366-715d29e33f9d?auto=format&fit=crop&q=60&w=700&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8',
     'https://imgur.com/B9r52fQ',
     'https://imgur.com/R9LuOUK',
     'https://imgur.com/Th3ddXY',
