@@ -4,3 +4,5 @@ streamlit-lottie
 streamlit_option_menu
 streamlit_extras
 appwrite
+plotly.express
+pandas

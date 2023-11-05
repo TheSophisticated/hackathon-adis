@@ -1,11 +1,19 @@
 import json
 import requests  # pip install requests
-import streamlit as st  # pip install streamlit
-import openai #pip install openai
+import streamlit as st  # pip install streamlit#pip install openai
 from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_chat import message
 from streamlit_extras.switch_page_button import switch_page
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Food Guide", page_icon="my_favicon.png", layout = 'wide' )
 
