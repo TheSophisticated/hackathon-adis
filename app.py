@@ -204,7 +204,7 @@ elif selected == "Personal":
                     st.write("""This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
             Say goodbye to waste-related woes and welcome a cleaner, greener future with this straightforward guide.""")
                     if st.button("Check out the Waste Disposal Guide"):
-                        switch_page("waste-guide")
+                        switch_page("BMI")
                         selected = None
 
 # Community Related Features
