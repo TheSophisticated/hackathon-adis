@@ -14,6 +14,7 @@ st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='
                    initial_sidebar_state='collapsed')
 
 
+
 # Initialise Supabase
 appwrite_client = Client()
 appwrite_client.set_endpoint("https://cloud.appwrite.io/v1")
@@ -44,11 +45,13 @@ def load_lottieurl(url: str):
 # replace link to local lottie file
 lottie_hello = load_lottieurl("https://lottie.host/56d1faa9-c78e-459f-888e-5f3eaa2abf2d/hYh9CF4KDt.json")
 lottie_tracker = load_lottieurl("https://lottie.host/3170ab1a-092f-4713-b398-8d880b8e0f89/9XoxtwePbF.json")
-lottie_why = load_lottieurl("https://lottie.host/981a0f88-6a06-4ea9-a4e9-92c2d962309e/eOLgYDDSRZ.json")
+lottie_why = load_lottiefile("home-how.json")
 lottie_waste = load_lottieurl("https://lottie.host/8b646674-95fa-4fad-a136-1dafb118ac30/SExy5Xq00Y.json")
 lottie_cal = load_lottieurl("https://lottie.host/5ca4d357-bc7e-4b88-ada3-25098a4689eb/zIXsgClbao.json")
 lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d53a54d/4x1JxpVCSo.json")
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
+lottie_bmi = load_lottieurl("https://lottie.host/cb46d577-68ee-4348-baa6-6c99ad99ef81/krEB5SFedB.json")
+lottie_elec = load_lottieurl("https://lottie.host/705680b5-fe00-43f4-ba5f-4aacc3412c8f/i6JPk53jJB.json")
 
 # CSS
 contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"method="POST">
@@ -176,7 +179,7 @@ elif selected == "Personal":
                         selected = None
         with col_r:
             st_lottie(
-                lottie_business,
+                lottie_elec,
                 speed=1,
                 reverse=False,
                 loop=True,
@@ -193,7 +196,7 @@ elif selected == "Personal":
         with col_2:
             with st.container():
                 st_lottie(
-                    lottie_waste,
+                    lottie_bmi,
                     speed=1,
                     loop=True,
                     reverse=False,

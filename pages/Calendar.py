@@ -7,6 +7,8 @@ from streamlit_extras.switch_page_button import switch_page
 import streamlit.components.v1 as components
 import base64
 
+st.set_page_config(layout='centered')
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -16,24 +18,21 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-def encode_image_to_base64(file):
-    with open(file, 'rb') as f:
-        data = f.read()
-        return base64.b64encode(data).decode()
-    
 
-selected = option_menu(
-    menu_title = None,
-    options = ['Home', 'Explore', 'Contact Us'],
-    icons = ['house', 'book', 'envelope'],
-    default_index = 0,
-    orientation = 'horizontal',
-    styles = None
-)
 
 image_urls = [
-    'https://www.google.com/imgres?imgurl=https%3A%2F%2Fdynamic-media-cdn.tripadvisor.com%2Fmedia%2Fphoto-o%2F0f%2Fba%2F29%2F5c%2Fimg-worlds-of-adventure.jpg%3Fw%3D1200%26h%3D1200%26s%3D1&tbnid=BHbOsHsYSl36gM&vet=12ahUKEwii3dXUmquCAxUfsCcCHcQvAI8QMygCegQIARBr..i&imgrefurl=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g295424-d10687494-Reviews-IMG_Worlds_of_Adventure-Dubai_Emirate_of_Dubai.html&docid=4CepYyh_L6BPmM&w=1200&h=1200&q=img&ved=2ahUKEwii3dXUmquCAxUfsCcCHcQvAI8QMygCegQIARBr',
-    'https://github.com/TheSophisticated/hackathon-adis/blob/main/cal/Feb.png',
+    'cal\Jan.png',
+    'cal\Feb.png',
+    'cal\mar.png',
+    'cal\Apr.png',
+    'cal\may.png',
+    'cal\jun.png',
+    'cal\jul.png',
+    'cal\\aug.png',
+    'cal\sep.png',
+    'cal\oct.png',
+    'cal\\nov.png',
+    'cal\dec.png'
 ]
 
 if st.button("Back To Home"):
