@@ -59,9 +59,7 @@ contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"meth
   <button type="submit">Send</button>
 </form>"""
 
-left_column, right_column = st.columns(2)
-with left_column:
-    st.markdown(contact_form, unsafe_allow_html=True)
+right_column = st.columns(1)
 with right_column:
     st.empty()
 st.file_uploader('FILE UPLOAD')
