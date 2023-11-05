@@ -59,9 +59,6 @@ contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"meth
   <button type="submit">Send</button>
 </form>"""
 
-
-
-
 st.markdown(
     """
 <style>
@@ -364,8 +361,3 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
-
-right_column = st.columns(1)
-with right_column:
-    st.empty()
-st.file_uploader('FILE UPLOAD')
