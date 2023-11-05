@@ -262,6 +262,40 @@ elif selected == 'Community':
                     if st.button("Check out the Waste Disposal Guide"):
                         switch_page("waste-guide")
                         selected = None
+    st.write("-----")
+    with st.container():
+        st.title("Comments")
+
+        user_name = st.text_input("Your Name", "")
+        new_comment = st.text_area("Add your comment", "")
+
+        if st.button("Submit"):
+            if user_name and new_comment:
+                document_id = str(int(time.time() * 1000))
+                data = {
+                    'name': user_name,
+                    'comment': new_comment
+                }
+                response = database.create_document(collection_id="65453061a669a36a5df1", document_id=document_id, data=data, database_id='comments')
+                if response["$id"]:
+                    st.success("Comment added Successfully")
+                    new_comment = ""
+                    user_name = ""
+                else:
+                    st.warning("An error ocurred while adding the comment")
+            else:
+                st.warning("Please enter your name and comment before submitting")
+
+        st.subheader("Comments")
+        response = database.list_documents(collection_id="65453061a669a36a5df1", database_id='comments')
+
+        if response and 'documents' in response:
+            comments = response["documents"]
+            for comment in comments:
+                st.write(f"**{comment['name']}** : {comment['comment']}")
+        else:
+            st.info("No comments yet. Be the first one to comment!")
+
 
 # Explore Page
 elif selected == 'Explore':
