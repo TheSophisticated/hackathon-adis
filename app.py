@@ -13,6 +13,7 @@ import time
 st.set_page_config(page_title="Live Green", page_icon="my_favicon.png", layout='wide',
                    initial_sidebar_state='collapsed')
 
+
 # Initialise Supabase
 appwrite_client = Client()
 appwrite_client.set_endpoint("https://cloud.appwrite.io/v1")
