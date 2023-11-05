@@ -200,10 +200,9 @@ elif selected == "Personal":
                     height=350,
                 )
                 st.markdown("<div style='text-align: center;'><h4>BMI Calculator</h4></div>", unsafe_allow_html=True)
-                with st.expander("Is waste disposal leaving you perplexed? Look no further than our concise Waste Disposal Guide...."):
-                    st.write("""This user-friendly resource simplifies the art of responsible waste management. Get ready to declutter and embrace a more eco-friendly life. 
-            Say goodbye to waste-related woes and welcome a cleaner, greener future with this straightforward guide.""")
-                    if st.button("Check out the Waste Disposal Guide"):
+                with st.expander("Are you struggling to calculate your BMI? Don't worry, we've got you covered with our easy-to-use BMI Calculator."):
+                    st.write("""This user-friendly tool simplifies the process of calculating your BMI. Get ready to understand your body's health and take steps towards a healthier lifestyle. Say goodbye to BMI-related confusion and welcome a more informed, well-being-focused future with our straightforward BMI Calculator.""")
+                    if st.button("Check out the BMI Calculator"):
                         switch_page("BMI")
                         selected = None
 
