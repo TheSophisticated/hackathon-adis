@@ -1,11 +1,17 @@
 import streamlit as st
 from PIL import Image
+from streamlit_extras.switch_page_button import switch_page
+
+st.set_page_config(layout='centered')
+
+if st.button("Back To Home"):
+    switch_page("app")
 
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            header {visibility: hidden;}
+            header {vi"sibility: hidden;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)

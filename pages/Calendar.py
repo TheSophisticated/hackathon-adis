@@ -7,7 +7,7 @@ from streamlit_extras.switch_page_button import switch_page
 import streamlit.components.v1 as components
 import base64
 
-st.set_page_config(layout='centered')
+st.set_page_config(layout='centered', initial_sidebar_state='collapsed')
 
 hide_st_style = """
             <style>
@@ -50,6 +50,7 @@ selected_index = ['January', 'February', 'March', 'April', 'May', 'June', 'July'
 # Display the image for the selected month
 st.image(image_urls[selected_index], caption=selected_month, use_column_width=True)
 
+
 events_data = {
     'ADSW': "Abu Dhabi Sustainability Week (ADSW) is a global platform for dialogue and collaboration on sustainability. It will take place in Abu Dhabi from January 16 to 19, 2023. ADSW will bring together leaders from government, business, and academia to discuss the latest trends and challenges in sustainability, and to identify solutions to the world's most pressing problems.",
     'World Wetlands Day': 'This day raises awareness about wetland conservation and their significance for ecological balance in both urban and rural environments.',
@@ -74,6 +75,11 @@ events_data = {
 }
 
 st.title('Event Descriptions')
+
+with st.container():
+    col1, col2 = st.columns(2)
+    with col1:
+        pass
 
 # Dropdown to select an event
 selected_event = st.selectbox('Select an Event', [''] + list(events_data.keys()))

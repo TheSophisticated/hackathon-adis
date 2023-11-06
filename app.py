@@ -92,7 +92,7 @@ st.write("\n")
 # Navbar
 selected = option_menu(
     menu_title=None,
-    options=['Home', 'Personal','Community' ,'Contact Us'],
+    options=['Home', 'Individual','Community' ,'Contact Us'],
     icons=['house', 'book', 'envelope'],
     default_index=0,
     orientation='horizontal',
@@ -156,7 +156,7 @@ At Live Green, we understand your dedication to the environment, and our mission
 """)
             
 # Personal Features
-elif selected == "Personal":
+elif selected == "Individual":
     with st.container():
         col_l, col_r = st.columns(2)
         with col_l:
@@ -178,22 +178,6 @@ elif selected == "Personal":
                         switch_page("tracker")
                         selected = None
         with col_r:
-            st_lottie(
-                lottie_elec,
-                speed=1,
-                reverse=False,
-                loop=True,
-                height=350,
-            )
-            st.markdown("<div style='text-align: center;'><h4>Electricity Management</h4></div>", unsafe_allow_html=True)
-            with st.expander("Introducing the Sustainable Business Directory, your essential guide to navigating the world...."):
-                    st.write("""of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
-                    if st.button("Check out the Sustainable Business Directory"):
-                        switch_page("business-dir")
-                        selected = None
-    with st.container():
-        col_1, col_2, col_3 = st.columns(3)
-        with col_2:
             with st.container():
                 st_lottie(
                     lottie_bmi,
@@ -208,6 +192,8 @@ elif selected == "Personal":
                     if st.button("Check out the BMI Calculator"):
                         switch_page("BMI")
                         selected = None
+        
+            
 
 # Community Related Features
 elif selected == 'Community':
@@ -244,10 +230,7 @@ elif selected == 'Community':
                     if st.button("Check out the Sustainable Business Directory"):
                         switch_page("business-dir")
                         selected = None
-    
-    with st.container():
-        col_1, col_2, col_3 = st.columns(3)
-        with col_2:
+        with col_l:
             with st.container():
                 st_lottie(
                     lottie_waste,
@@ -263,6 +246,21 @@ elif selected == 'Community':
                     if st.button("Check out the Waste Disposal Guide"):
                         switch_page("waste-guide")
                         selected = None
+        with col_r:
+            st_lottie(
+                lottie_elec,
+                speed=1,
+                reverse=False,
+                loop=True,
+                height=350,
+            )
+            st.markdown("<div style='text-align: center;'><h4>Electricity Management</h4></div>", unsafe_allow_html=True)
+            with st.expander("Introducing the Sustainable Business Directory, your essential guide to navigating the world...."):
+                    st.write("""of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
+                    if st.button("Checkout the Electricity Manager"):
+                        switch_page('tracker')
+                        selected = None
+            
     st.write("-----")
     with st.container():
         st.title("Comments")
