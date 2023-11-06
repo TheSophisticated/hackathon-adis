@@ -8,6 +8,21 @@ from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+
+if st.button("Back To Home"):
+    switch_page("app")
+
+
 df = pd.read_excel(
     io = 'Energy.xlsx',
     engine='openpyxl',
@@ -65,19 +80,6 @@ with right_column:
     st.subheader(f"AED {total_cost:,} 💸")
     
 st.markdown("---")
-
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-
-
-if st.button("Back To Home"):
-    switch_page("app")
 
 
 energy_sources = {
