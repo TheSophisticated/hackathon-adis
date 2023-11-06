@@ -7,6 +7,8 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(layout="centered")
 
+
+
 waste_data = {
     "plastic bottle": {
         "Category": "Plastic Waste",
@@ -78,6 +80,8 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
+
 
 selected = option_menu(
     menu_title = None,
