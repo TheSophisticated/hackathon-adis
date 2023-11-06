@@ -8,6 +8,10 @@ from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
+st.set_page_config(page_title="Real Time Energy Usage",
+                   layout="wide")
+
+
 
 hide_st_style = """
             <style>
@@ -33,9 +37,6 @@ df = pd.read_excel(
 )
 
 print (df)
-
-st.set_page_config(page_title="Real Time Energy Usage",
-                   layout="wide")
 
 
 
