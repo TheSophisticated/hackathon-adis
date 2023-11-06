@@ -255,10 +255,10 @@ elif selected == 'Community':
                 height=350,
             )
             st.markdown("<div style='text-align: center;'><h4>Electricity Management</h4></div>", unsafe_allow_html=True)
-            with st.expander("Introducing the Sustainable Business Directory, your essential guide to navigating the world...."):
-                    st.write("""of eco-conscious commerce. This user-friendly resource is your key to discovering businesses committed to sustainability. Explore a wide range of enterprises dedicated to environmentally responsible practices, from eco-friendly products to green energy services. Say hello to a more sustainable way of doing business and welcome a future where every transaction contributes to a cleaner, greener world. Step into a new era of conscious consumerism with our straightforward Sustainable Business Directory, where your choices drive a more eco-friendly and sustainable marketplace.""")
+            with st.expander("Introducing the UAE Electricity Management Guide, your essential resource for understanding and managing the entire electricity usage in the UAE."):
+                    st.write("""Step into the Future of UAE Electricity Management. This user-friendly resource is your key to understanding and optimizing electricity usage in the UAE. Explore a wide range of enterprises dedicated to efficient and sustainable electricity management practices, from energy-efficient products to green power services. Say hello to a more sustainable way of managing electricity consumption and welcome a future where every decision contributes to a cleaner, more energy-efficient UAE. Step into a new era of conscious electricity management with our straightforward UAE Electricity Management Guide, where your choices drive a more efficient and sustainable energy landscape.""")
                     if st.button("Checkout the Electricity Manager"):
-                        switch_page('tracker')
+                        switch_page('Electricity')
                         selected = None
             
     st.write("-----")
