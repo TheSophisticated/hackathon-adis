@@ -159,7 +159,7 @@ energy_sources = {
 }
 
 default_text = "Please select a waste type to learn more about proper disposal."
-selected_energy_type = st.selectbox("Select a waste type:", energy_sources.keys(), index=0)
+selected_energy_type = st.selectbox("Select a enegry type:", energy_sources.keys(), index=0)
 
 if selected_energy_type:
     st.write(energy_sources[selected_energy_type])
