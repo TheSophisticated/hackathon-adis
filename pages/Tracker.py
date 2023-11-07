@@ -49,7 +49,7 @@ EMISSION_FACTORS = {
 }
 
 # Streamlit app code
-st.title("Calculate Your Carbon Emissions 🌫️ ")
+st.title("Monitor your Ecological-Imapct 🌫️ ")
 
 # User inputs
 st.subheader("🌍 Your Country")
@@ -119,8 +119,8 @@ if country in EMISSION_FACTORS:
             st.info(f"🗑️ Waste: {waste_emissions} tonnes CO2 per year")
 
         with col4:
-            st.subheader("Total Carbon Footprint")
-            st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
+            st.subheader("Total Ecological-Imapct ")
+            st.success(f"🌍 Your total Eco-Imapct is: {total_emissions} tonnes CO2 per year")
             st.warning("In 2023, CO2 emissions per capita for UAE was 20.5 tons of CO2 per capita. Between 1972 and 2023, CO2 emissions per capita of UAE grew substantially from 4.2 to 20.5 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 10.33% in 2023")
 else:
     st.warning("Please select a valid country from the dropdown.")

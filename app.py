@@ -170,11 +170,11 @@ elif selected == "Individual":
                     height=350,
                     width=None,
                 )
-                st.markdown("<div style='text-align: center;'><h4>Carbon Tracker</h4></div>", unsafe_allow_html=True)
-                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
+                st.markdown("<div style='text-align: center;'><h4>Eco-Imapct Monitor</h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Eco-Imapct Monitor is a tool designed to help individuals measure and understand....", expanded=False):
                     st.write(""" their personal impact on the environment. 
                      It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
-                    if st.button("Go to the Carbon Tracker"):
+                    if st.button("Go to the Eco-Imapct Monitor"):
                         switch_page("tracker")
                         selected = None
         with col_r:
@@ -312,11 +312,11 @@ elif selected == 'Explore':
                     height=350,
                     width=None,
                 )
-                st.markdown("<div style='text-align: center;'><h4>Carbon Tracker</h4></div>", unsafe_allow_html=True)
-                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
+                st.markdown("<div style='text-align: center;'><h4>Eco-Imapct Monitor </h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Eco-Impact Monitor is a tool designed to help individuals measure and understand....", expanded=False):
                     st.write(""" their personal impact on the environment. 
-                     It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
-                    if st.button("Go to the Carbon Tracker"):
+                     It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your Eco-Impact, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
+                    if st.button("Go to the Eco-Imapct Monitor"):
                         switch_page("tracker")
                         selected = None
         
