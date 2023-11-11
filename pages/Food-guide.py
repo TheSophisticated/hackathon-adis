@@ -1,17 +1,16 @@
 import openai
 import streamlit as st 
 from streamlit_chat import message
-st.set_page_config(layout = 'centred')
+st.set_page_config(layout = 'centered')
 
-st.set_page_config(layout='centered')
 
 openai.api_key = st.secrets["api_secret"]
 
 def generate_response(prompt):
     completions = openai.Completion.create(
-        engine = "text-davinci-002",
+        engine = "gpt-3.5-turbo",
         prompt = prompt,
-        max_tokens = 4000,
+        max_tokens = 1500,
         n = 1,
         stop = None,
         temperature = 0.5,
