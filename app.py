@@ -207,8 +207,8 @@ elif selected == "Individual":
                     width=None,
                 )
                 st.markdown("<div style='text-align: center;'><h4>Sustainable Food Guide</h4></div>", unsafe_allow_html=True)
-                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
-                    st.write(""" ntroducing the Sustainability Food Guide, your ultimate companion on the path to greener, healthier dining. This user-friendly resource is your gateway to eco-conscious culinary choices. Discover tips and insights on sourcing local ingredients, reducing food waste, and embracing sustainable cooking practices. 
+                with st.expander("Is meal preparation leaving you perplexed? Look no further than our concise Food Preparation Guide. Explore simple and efficient ways to make cooking a breeze, ensuring a delicious and stress-free dining experience.", expanded=False):
+                    st.write("""Introducing the Sustainability Food Guide, your ultimate companion on the path to greener, healthier dining. This user-friendly resource is your gateway to eco-conscious culinary choices. Discover tips and insights on sourcing local ingredients, reducing food waste, and embracing sustainable cooking practices. 
                      Say farewell to unsustainable eating habits and savor a future filled with delicious, planet-friendly dishes. Welcome a new era of mindful, eco-friendly dining with our straightforward Sustainability Food Guide, where every meal contributes to a cleaner, greener world""")
                     if st.button("Go to the Food guide"):
                         switch_page("Food-guide")
