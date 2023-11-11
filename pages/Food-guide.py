@@ -1,9 +1,7 @@
 import openai
 import streamlit as st 
 from streamlit_chat import message
-st.set_page_config(layout = 'centred')
-
-st.set_page_config(layout='centered')
+st.set_page_config(layout = 'centered')
 
 openai.api_key = st.secrets["api_secret"]
 
