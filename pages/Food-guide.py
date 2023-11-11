@@ -2,6 +2,8 @@ import openai
 import streamlit as st 
 from streamlit_chat import message
 
+st.set_page_config(layout='centered')
+
 openai.api_key = st.secrets["api_secret"]
 
 def generate_response(prompt):

@@ -191,7 +191,11 @@ elif selected == "Individual":
                     if st.button("Check out the BMI Calculator"):
                         switch_page("BMI")
                         selected = None
-        with col_l:
+            
+
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+        with col2:
             with st.container():
                 st_lottie(
                     lottie_food,
@@ -209,7 +213,6 @@ elif selected == "Individual":
                     if st.button("Go to the Food guide"):
                         switch_page("Food-guide")
                         selected = None
-        
             
 
 # Community Related Features
@@ -278,68 +281,6 @@ elif selected == 'Community':
                         switch_page('Electricity')
                         selected = None
             
-<<<<<<< Updated upstream
-    st.write("-----")
-    with st.container():
-        st.title("Comments")
-
-        user_name = st.text_input("Your Name", "")
-        new_comment = st.text_area("Add your comment", "")
-
-        if st.button("Submit"):
-            if user_name and new_comment:
-                document_id = str(int(time.time() * 1000))
-                data = {
-                    'name': user_name,
-                    'comment': new_comment
-                }
-                response = database.create_document(collection_id="65453061a669a36a5df1", document_id=document_id, data=data, database_id='comments')
-                if response["$id"]:
-                    st.success("Comment added Successfully")
-                    new_comment = ""
-                    user_name = ""
-                else:
-                    st.warning("An error ocurred while adding the comment")
-            else:
-                st.warning("Please enter your name and comment before submitting")
-
-        st.subheader("Comments")
-        response = database.list_documents(collection_id="65453061a669a36a5df1", database_id='comments')
-
-        if response and 'documents' in response:
-            comments = response["documents"]
-            for comment in comments:
-                st.write(f"**{comment['name']}** : {comment['comment']}")
-        else:
-            st.info("No comments yet. Be the first one to comment!")
-
-
-# Explore Page
-elif selected == 'Explore':
-
-    with st.container():
-        col_l, col_r = st.columns(2)
-        with col_l:
-            with st.container():
-                st_lottie(
-                    lottie_tracker,
-                    speed=1,
-                    reverse=False,
-                    loop=True,
-                    quality="low",  # medium ; high
-                    height=350,
-                    width=None,
-                )
-                st.markdown("<div style='text-align: center;'><h4>Eco-Imapct Monitor </h4></div>", unsafe_allow_html=True)
-                with st.expander("A basic Eco-Impact Monitor is a tool designed to help individuals measure and understand....", expanded=False):
-                    st.write(""" their personal impact on the environment. 
-                     It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your Eco-Impact, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
-                    if st.button("Go to the Eco-Imapct Monitor"):
-                        switch_page("tracker")
-                        selected = None
-        
-=======
->>>>>>> Stashed changes
     
     st.write("-----")
     # Comment Section
@@ -382,11 +323,5 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
-<<<<<<< Updated upstream
-    
     if st.button("Submit"):
         st.success("The query has been submitted")
-=======
-    if st.button("Submit"):
-        st.success("The query has been submitted")
->>>>>>> Stashed changes
