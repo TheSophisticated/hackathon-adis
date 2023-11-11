@@ -59,7 +59,6 @@ contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"meth
   <input type="text" name="name" placeholder="Name" required>
   <input type="email" name="email" placeholder="Email" required>
   <textarea type="query" name = "query" placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
 </form>"""
 
 st.markdown(
@@ -165,16 +164,16 @@ elif selected == "Individual":
                     lottie_tracker,
                     speed=1,
                     reverse=False,
-                    loop=True,
+                    loop=True,  
                     quality="low",  # medium ; high
                     height=350,
                     width=None,
                 )
-                st.markdown("<div style='text-align: center;'><h4>Eco-Imapct Monitor</h4></div>", unsafe_allow_html=True)
-                with st.expander("A basic Eco-Imapct Monitor is a tool designed to help individuals measure and understand....", expanded=False):
+                st.markdown("<div style='text-align: center;'><h4>Eco - Impact Monitor</h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
                     st.write(""" their personal impact on the environment. 
                      It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
-                    if st.button("Go to the Eco-Imapct Monitor"):
+                    if st.button("Go to the Eco Monitor"):
                         switch_page("tracker")
                         selected = None
         with col_r:
@@ -191,6 +190,24 @@ elif selected == "Individual":
                     st.write("""This user-friendly tool simplifies the process of calculating your BMI. Get ready to understand your body's health and take steps towards a healthier lifestyle. Say goodbye to BMI-related confusion and welcome a more informed, well-being-focused future with our straightforward BMI Calculator.""")
                     if st.button("Check out the BMI Calculator"):
                         switch_page("BMI")
+                        selected = None
+        with col_l:
+            with st.container():
+                st_lottie(
+                    lottie_food,
+                    speed=1,
+                    reverse=False,
+                    loop=True,  
+                    quality="low",  # medium ; high
+                    height=350,
+                    width=None,
+                )
+                st.markdown("<div style='text-align: center;'><h4>Sustainable Food Guide</h4></div>", unsafe_allow_html=True)
+                with st.expander("A basic Carbon Footprint Tracker is a tool designed to help individuals measure and understand....", expanded=False):
+                    st.write(""" ntroducing the Sustainability Food Guide, your ultimate companion on the path to greener, healthier dining. This user-friendly resource is your gateway to eco-conscious culinary choices. Discover tips and insights on sourcing local ingredients, reducing food waste, and embracing sustainable cooking practices. 
+                     Say farewell to unsustainable eating habits and savor a future filled with delicious, planet-friendly dishes. Welcome a new era of mindful, eco-friendly dining with our straightforward Sustainability Food Guide, where every meal contributes to a cleaner, greener world""")
+                    if st.button("Go to the Food guide"):
+                        switch_page("Food-guide")
                         selected = None
         
             
@@ -351,7 +368,7 @@ elif selected == 'Explore':
         if response and 'documents' in response:
             comments = response["documents"]
             for comment in comments:
-                st.write(f"**{comment['name']}** : {comment['comment']}")
+                st.write(f"{comment['name']} : {comment['comment']}")
         else:
             st.info("No comments yet. Be the first one to comment!")
 
@@ -361,3 +378,6 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
+    
+    if st.button("Submit"):
+        st.success("The query has been submitted")

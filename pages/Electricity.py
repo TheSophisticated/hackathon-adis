@@ -11,6 +11,8 @@ from streamlit_extras.switch_page_button import switch_page
 st.set_page_config(page_title="Real Time Energy Usage",
                    layout="wide")
 
+
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -35,8 +37,6 @@ df = pd.read_excel(
 )
 
 print (df)
-
-
 
 
 
@@ -159,7 +159,7 @@ energy_sources = {
     """,
 }
 
-default_text = "Please select a waste type to learn more about proper disposal."
+default_text = "Please select a Energy type to learn more about proper disposal."
 selected_energy_type = st.selectbox("Select a enegry type:", energy_sources.keys(), index=0)
 
 if selected_energy_type:
