@@ -5,7 +5,7 @@ from streamlit_lottie import st_lottie  # pip install strclseamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
-st.set_page_config(layout="centered")
+st.set_page_config(layout="centered", initial_sidebar_state = 'collapsed')
 
 
 
@@ -81,16 +81,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-
-
-selected = option_menu(
-    menu_title = None,
-    options = ['Home', 'Explore', 'Contact Us'],
-    icons = ['house', 'book', 'envelope'],
-    default_index = 0,
-    orientation = 'horizontal',
-    styles = None
-)
+    
 
 if st.button("Back To Home"):
     switch_page("app")

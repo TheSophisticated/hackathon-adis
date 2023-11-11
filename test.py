@@ -40,6 +40,7 @@ lottie_cal = load_lottieurl("https://lottie.host/5ca4d357-bc7e-4b88-ada3-25098a4
 lottie_food = load_lottieurl("https://lottie.host/163ab21e-31d6-4637-b497-184d4d53a54d/4x1JxpVCSo.json")
 lottie_business = load_lottieurl("https://lottie.host/103fa2e1-543d-4695-baf9-97e88b32ba11/owemdBNjw4.json")
 
+
 # CSS
 contact_form = """<form action="https://formsubmit.co/amoghvarote@gmail.com"method="POST">
   <input type="hidden" name="_captcha" value="false">

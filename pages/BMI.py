@@ -1,8 +1,14 @@
 import streamlit as st
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
+from streamlit_lottie import st_lottie  # pip install streamlit-lottie
+from streamlit_option_menu import option_menu
+from streamlit_extras.switch_page_button import switch_page
+from appwrite.client import Client
+from appwrite.services.databases import Databases
 
-st.set_page_config(layout='centered')
+
+st.set_page_config(page_title="Live Green", layout='centered',initial_sidebar_state='collapsed')
 
 if st.button("Back To Home"):
     switch_page("app")
