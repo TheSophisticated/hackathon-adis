@@ -278,6 +278,7 @@ elif selected == 'Community':
                         switch_page('Electricity')
                         selected = None
             
+<<<<<<< Updated upstream
     st.write("-----")
     with st.container():
         st.title("Comments")
@@ -337,8 +338,11 @@ elif selected == 'Explore':
                         switch_page("tracker")
                         selected = None
         
+=======
+>>>>>>> Stashed changes
     
     st.write("-----")
+    # Comment Section
     with st.container():
         st.title("Comments")
 
@@ -378,6 +382,11 @@ elif selected == "Contact Us":
     st.markdown(contact_form, unsafe_allow_html=True)
 
     local_css("style/style.css")
+<<<<<<< Updated upstream
     
     if st.button("Submit"):
         st.success("The query has been submitted")
+=======
+    if st.button("Submit"):
+        st.success("The query has been submitted")
+>>>>>>> Stashed changes
