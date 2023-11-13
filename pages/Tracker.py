@@ -5,11 +5,7 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from streamlit_option_menu import option_menu
 from streamlit_extras.switch_page_button import switch_page
 
-<<<<<<< Updated upstream
-st.set_page_config(initial_sidebar_state = 'collapsed')
-=======
 st.set_page_config(initial_sidebar_state='collapsed')
->>>>>>> Stashed changes
 
 bg_img = """
 <style>
@@ -55,11 +51,7 @@ EMISSION_FACTORS = {
 }
 
 # Streamlit app code
-<<<<<<< Updated upstream
-st.title("Monitor your Ecological-Imapct 🌫️ ")
-=======
 st.title("Calculate Your Ecological Impact 🌫️ ")
->>>>>>> Stashed changes
 
 # User inputs
 st.subheader("🌍 Your Country")

@@ -7,7 +7,7 @@ openai.api_key = st.secrets["api_secret"]
 
 def generate_response(prompt):
     completions = openai.Completion.create(
-        engine = "gpt-3.5-turbo",
+        engine = "text-davinci-003",
         prompt = prompt,
         max_tokens = 1500,
         n = 1,
