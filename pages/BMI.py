@@ -7,7 +7,12 @@ from streamlit_extras.switch_page_button import switch_page
 from appwrite.client import Client
 from appwrite.services.databases import Databases
 
+<<<<<<< Updated upstream
 st.set_page_config(layout='centered', initial_sidebar_state='collapsed')
+=======
+
+st.set_page_config(page_title="Live Green", layout='centered',initial_sidebar_state='collapsed')
+>>>>>>> Stashed changes
 
 if st.button("Back To Home"):
     switch_page("app")
