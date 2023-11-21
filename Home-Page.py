@@ -82,7 +82,7 @@ st.markdown(
 unsafe_allow_html=True
 )
 
-tracker = "pages\Tracker.py"
+tracker = "pages\Eco-Monitor.py"
 
 # Setting Up page configs
 st.markdown("<div style='text-align: center;'><h1>Live Green 🌳</h1></div>", unsafe_allow_html=True)
@@ -174,7 +174,7 @@ elif selected == "Individual":
                     st.write(""" their personal impact on the environment. 
                      It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
                     if st.button("Go to the Eco Monitor"):
-                        switch_page("tracker")
+                        switch_page("Eco Monitor")
                         selected = None
         with col_r:
             with st.container():
