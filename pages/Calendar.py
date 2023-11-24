@@ -36,7 +36,7 @@ image_urls = [
 ]
 
 if st.button("Back To Home"):
-    switch_page("app")
+    switch_page("Homepage")
 
 
 with st.container():

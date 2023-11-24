@@ -84,7 +84,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
     
 
 if st.button("Back To Home"):
-    switch_page("app")
+    switch_page("Homepage")
 
 st.title("Waste Guide")
 

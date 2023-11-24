@@ -1,7 +1,14 @@
 import openai
 import streamlit as st 
 from streamlit_chat import message
+from streamlit_extras.switch_page_button import switch_page
+
 st.set_page_config(layout = 'centered')
+
+
+if st.button("Back To Home"):
+    switch_page("Homepage")
+
 
 openai.api_key = st.secrets["api_secret"]
 

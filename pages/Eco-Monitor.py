@@ -32,7 +32,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 if st.button("Back To Home"):
-    switch_page("app")
+    switch_page("Homepage")
 
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {

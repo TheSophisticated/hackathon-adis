@@ -174,7 +174,7 @@ elif selected == "Individual":
                     st.write(""" their personal impact on the environment. 
                      It allows you to record and monitor your daily activities and choices that contribute to carbon emissions. By offering a straightforward way to quantify your carbon footprint, it empowers you to make informed decisions and take steps towards a more sustainable lifestyle.""")
                     if st.button("Go to the Eco Monitor"):
-                        switch_page("Eco Monitor")
+                        switch_page("Eco-Monitor")
                         selected = None
         with col_r:
             with st.container():

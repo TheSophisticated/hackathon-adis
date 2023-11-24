@@ -10,7 +10,7 @@ from appwrite.services.databases import Databases
 st.set_page_config(layout='centered', initial_sidebar_state='collapsed')
 
 if st.button("Back To Home"):
-    switch_page("app")
+    switch_page("Homepage")
 
 hide_st_style = """
             <style>
