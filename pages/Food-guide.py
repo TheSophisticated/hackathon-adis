@@ -1,6 +1,5 @@
 import openai
 import streamlit as st 
-from streamlit_chat import message
 from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(layout = 'centered')
@@ -9,47 +8,44 @@ st.set_page_config(layout = 'centered')
 if st.button("Back To Home"):
     switch_page("Homepage")
 
+st.title("Your Own Personal Food Guide 🥗")
 
 openai.api_key = st.secrets["api_secret"]
 
-def generate_response(prompt):
-    completions = openai.Completion.create(
-        engine = "text-davinci-003",
-        prompt = prompt,
-        max_tokens = 1500,
-        n = 1,
-        stop = None,
-        temperature = 0.5,
+if "openai_model" not in st.session_state:
+    st.session_state["openai_model"] = "gpt-3.5-turbo"
+
+# Initialize chat history
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    
+# Display chat essages from history on app return
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
         
-    )
+# React to user input
+prompt = st.chat_input("What is up?")
+if prompt:
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role":"user", "content": prompt})
 
-    message = completions.choices[0].text
-    return message
-
-st.title("Your Own Personal Food Guide 🥗")
-
-#storing the chat
-
-if 'generated' not in st.session_state:
-    st.session_state['generated'] = []
-
-if 'past' not in st.session_state:
-    st.session_state['past'] = []
-
-def get_text():
-    input_text = st.text_input("You: ","Hello, how are you?", key="input")
-    return input_text 
-
-user_input = get_text()
-
-if user_input:
-    output = generate_response(user_input)
-    #store output
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
-    
-if st.session_state['generated']:
-    
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+    with st.chat_message("assistant"):
+        message_placeholder = st.empty()
+        full_response = ""
+        for response in openai.ChatCompletion.create(
+            model=st.session_state["openai_model"],
+            messages=[
+                {"role":m["role"], "content": m["content"]}
+                for m in st.session_state.messages
+            ],
+            stream=True,
+        ):
+            full_response += response.choices[0].delta.get("content", "")
+            message_placeholder.markdown(full_response + " ")
+        message_placeholder.markdown(full_response)
+    st.session_state.messages.append({"role": "assistant", "content": full_response})
