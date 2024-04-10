@@ -1,6 +1,8 @@
-import openai
+import os
 import streamlit as st 
 from streamlit_extras.switch_page_button import switch_page
+from dotenv import load_dotenv
+import google.generativeai as gen_ai
 
 st.set_page_config(layout = 'centered')
 
@@ -10,42 +12,41 @@ if st.button("Back To Home"):
 
 st.title("Your Own Personal Food Guide 🥗")
 
-openai.api_key = st.secrets["api_secret"]
+# Load environment variables
+load_dotenv()
 
-if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# Initialize chat history
+# Set up Google Gemini-Pro AI model
+gen_ai.configure(api_key=GOOGLE_API_KEY)
+model = gen_ai.GenerativeModel('gemini-pro')
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+# Function to translate roles between Gemini-Pro and Streamlit terminology
+def translate_role_for_streamlit(user_role):
+    if user_role == "model":
+        return "assistant"
+    else:
+        return user_role
+
+
+# Initialize chat session in Streamlit if not already present
+if "chat_session" not in st.session_state:
+    st.session_state.chat_session = model.start_chat(history=[])
     
-# Display chat essages from history on app return
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-        
-# React to user input
-prompt = st.chat_input("What is up?")
-if prompt:
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role":"user", "content": prompt})
+# Display the chat history
+for message in st.session_state.chat_session.history:
+    with st.chat_message(translate_role_for_streamlit(message.role)):
+        st.markdown(message.parts[0].text)
 
+# Input field for user's message
+user_prompt = st.chat_input("Ask Gemini-Pro...")
+if user_prompt:
+    # Add user's message to chat and display it
+    st.chat_message("user").markdown(user_prompt)
+
+    # Send user's message to Gemini-Pro and get the response
+    gemini_response = st.session_state.chat_session.send_message(user_prompt)
+
+    # Display Gemini-Pro's response
     with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
-        for response in openai.ChatCompletion.create(
-            model=st.session_state["openai_model"],
-            messages=[
-                {"role":m["role"], "content": m["content"]}
-                for m in st.session_state.messages
-            ],
-            stream=True,
-        ):
-            full_response += response.choices[0].delta.get("content", "")
-            message_placeholder.markdown(full_response + " ")
-        message_placeholder.markdown(full_response)
-    st.session_state.messages.append({"role": "assistant", "content": full_response})
+        st.markdown(gemini_response.text)

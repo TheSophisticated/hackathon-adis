@@ -7,3 +7,5 @@ appwrite
 plotly.express
 pandas
 openai
+python-dotenv==1.0.1
+google.generativeai==0.3.2
