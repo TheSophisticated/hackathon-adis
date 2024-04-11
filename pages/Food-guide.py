@@ -4,7 +4,7 @@ from streamlit_extras.switch_page_button import switch_page
 from dotenv import load_dotenv
 import google.generativeai as gen_ai
 
-st.set_page_config(layout = 'centered')
+st.set_page_config(layout="centered", initial_sidebar_state = 'collapsed')
 
 
 if st.button("Back To Home"):
