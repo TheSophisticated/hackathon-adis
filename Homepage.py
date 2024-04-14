@@ -201,7 +201,7 @@ elif selected == "Individual":
                     lottie_food,
                     speed=1,
                     reverse=False,
-                    loop=True,  
+                    loop=True,      
                     quality="low",  # medium ; high
                     height=350,
                     width=None,
